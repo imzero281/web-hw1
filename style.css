@@ -38,7 +38,7 @@ nav a {
 
 .board {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: 1fr;
     gap: var(--gap);
 }
 
@@ -151,6 +151,20 @@ footer {
     animation: pulse 2s infinite;
 }
 
+.change.up::before {
+    content: "▲";
+}
+
+.change.down::before {
+    content: "▼";
+    color: var(--accent);
+}
+
+.change.new::before {
+    content: "NEW";
+    color: var(--warn);
+}
+
 @keyframes pulse {
 
     0%,
@@ -184,5 +198,17 @@ footer {
 
     .hero h2 {
         font-size: 3rem;
+    }
+}
+
+@media (min-width: 768px){
+    .board{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1280px){
+    .board {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
